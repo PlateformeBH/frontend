@@ -1,0 +1,160 @@
+<div class="form-container sign-in-container">
+
+    <form #f="ngForm" (ngSubmit)="f.form.valid && loginAsManager()" autocomplete="on" >
+      <div class="alert feedback-invld "*ngIf="errorMessage">
+       {{errorMessage}}
+      </div>
+       <h2>Sign In As Manager</h2>
+       <br>
+      <div class="form-group mb-3" >
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="ni ni-single-02"> </i>
+            </span>
+          </div>
+          <input
+          placeholder="Username"
+          type="text" 
+          id="username"
+          name="username"
+          [(ngModel)]="manager.username"
+          #username="ngModel"
+          class="form-control"
+          required 
+          />
+          <div class="feedback-invld"  *ngIf="!username.valid && f.submitted">
+            *required
+          </div>
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'focused': focus4 === true }">
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="ni ni-lock-circle-open"> </i>
+            </span>
+          </div>
+          <input
+            placeholder="Password" (blur)="focus4 = false" (focus)="focus4 = true"
+                type="password"  minlength="6"
+                id="password"
+                name="password"
+                [(ngModel)]="manager.password"
+                #password="ngModel"
+                class="form-control"
+                required 
+          />
+        </div>
+        <div class="feedback-invld"   *ngIf="!password.valid && f.submitted">
+          Password must be at least 6 characters
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In As Manager</button>
+    </form>
+    <form #f1="ngForm" (ngSubmit)="f1.form.valid && loginAsMechanic()" autocomplete="on" >
+      <div class="alert feedback-invld "*ngIf="errorMessage">
+       {{errorMessage}}
+      </div>
+       <h2>Sign In As mechanic</h2>
+       <br>
+      <div class="form-group mb-3" >
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="ni ni-single-02"> </i>
+            </span>
+          </div>
+          <input
+          placeholder="Username"
+          type="text" 
+          id="username"
+          name="username"
+          [(ngModel)]="mechanic.username"
+          #username="ngModel"
+          class="form-control"
+          required 
+          />
+          <div class="feedback-invld"  *ngIf="!username.valid && f1.submitted">
+            *required
+          </div>
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'focused': focus5 === true }">
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="ni ni-lock-circle-open"> </i>
+            </span>
+          </div>
+          <input
+            placeholder="Password" (blur)="focus5 = false" (focus)="focus5 = true"
+                type="password"  minlength="6"
+                id="password"
+                name="password"
+                [(ngModel)]="mechanic.password"
+                #password="ngModel"
+                class="form-control"
+                required 
+          />
+        </div>
+        <div class="feedback-invld"   *ngIf="!password.valid && f1.submitted">
+          Password must be at least 6 characters
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In As mechanic</button>
+    </form>
+
+    <form #f2="ngForm" (ngSubmit)="f2.form.valid && loginAsSupplier()" autocomplete="on" >
+      <div class="alert feedback-invld "*ngIf="errorMessage">
+       {{errorMessage}}
+      </div>
+       <h2>Sign In As Supplier</h2>
+       <br>
+      <div class="form-group mb-3" >
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="ni ni-single-02"> </i>
+            </span>
+          </div>
+          <input
+          placeholder="Username"
+          type="text" 
+          id="username"
+          name="username"
+          [(ngModel)]="supplier.username"
+          #username="ngModel"
+          class="form-control"
+          required 
+          />
+          <div class="feedback-invld"  *ngIf="!username.valid && f2.submitted">
+            *required
+          </div>
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'focused': focus7 === true }">
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="ni ni-lock-circle-open"> </i>
+            </span>
+          </div>
+          <input
+            placeholder="Password" (blur)="focus7 = false" (focus)="focus7 = true"
+                type="password"  minlength="6"
+                id="password"
+                name="password"
+                [(ngModel)]="supplier.password"
+                #password="ngModel"
+                class="form-control"
+                required 
+          />
+        </div>
+        <div class="feedback-invld"   *ngIf="!password.valid && f2.submitted">
+          Password must be at least 6 characters
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In As Supplier</button>
+    </form>
+  </div>

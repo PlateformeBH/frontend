@@ -1,0 +1,197 @@
+<div class="wrapper">
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+        <form #f="ngForm" (ngSubmit)="f.form.valid && registerAsSupplier()" autocomplete="on" >
+        <div class="alert feedback-invld "*ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+            <h2>Add Supplier</h2>
+            <br>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-user-circle"> </i>
+                        </span>
+                        </div>
+                        <input
+                        placeholder="First Name"
+                        type="text" 
+                        id="firstName" 
+                        name="firstName"
+                        [(ngModel)]="supplier.firstName"
+                        #firstName="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"   *ngIf="!firstName.valid && f.submitted" >
+                    *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-user-circle"> </i>
+                        </span>
+                        </div>
+                    <input
+                    placeholder="Last Name"
+                    type="text" 
+                    id="lastName"
+                    name="lastName"
+                    [(ngModel)]="supplier.lastName"
+                    #lastName="ngModel"
+                    class="form-control"
+                    required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!lastName.valid && f.submitted">
+                    *required
+                    </div>
+                
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="ni ni-email-83"> </i>
+                            </span>
+                            </div>
+                        <input
+                            placeholder="Email "
+                            type="email"  
+                            id="email"
+                            name="email"
+                            [(ngModel)]="supplier.email"
+                            #email="ngModel"
+                            class="form-control"
+                            required 
+                        />  </div>
+                        <div class="feedback-invld" *ngIf="!email.valid && f.submitted" >
+                        *required
+                        </div> 
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-address-card"> </i>
+                        </span>
+                        </div>
+                        <input
+                            placeholder="CIN"
+                            type="text" maxlength="8"
+                            id="cin"
+                            name="cin"
+                            [(ngModel)]="supplier.cin"
+                            #cin="ngModel"
+                            class="form-control"
+                            pattern="[0-9]{8}"
+                            required 
+                        /></div>
+                        <div class="feedback-invld"  *ngIf="!cin.valid && f.submitted">
+                        *required
+                        </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-mobile-phone"> </i>
+                            </span>
+                        </div> 
+                        <input 
+                        placeholder="Phone Number"
+                        type="tel" maxlength="8"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        [(ngModel)]="supplier.phoneNumber"
+                        #phoneNumber="ngModel"
+                        class="form-control"
+                        
+                        pattern="[0-9]{2}[0-9]{3}[0-9]{3}"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!phoneNumber.valid && f.submitted">
+                        *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="ni ni-square-pin"> </i>
+                        </span>
+                        </div>
+                        <input
+                        placeholder="Address"
+                        type="text" 
+                        id="address"
+                        name="address"
+                        [(ngModel)]="supplier.address"
+                        #address="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!address.valid && f.submitted">
+                        *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="ni ni-single-02"> </i>
+                            </span>
+                        </div>
+                        <input
+                        placeholder="Username"
+                        type="text" 
+                        id="username"
+                        name="username"
+                        [(ngModel)]="supplier.username"
+                        #username="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!username.valid && f.submitted">
+                        *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6" [ngClass]="{ 'focused': focus4 === true }">
+                <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="ni ni-lock-circle-open"> </i>
+                    </span>
+                    </div>
+                    <input
+                    placeholder="Password" (blur)="focus4 = false" (focus)="focus4 = true"
+                    type="password"  minlength="6"
+                    id="password"
+                    name="password"
+                    [(ngModel)]="supplier.password"
+                    #password="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    
+                </div>
+                <div class="feedback-invld"   *ngIf="!password.valid && f.submitted">
+                    Password must be at least 6 characters
+                </div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        </div>
+    </div>
+</div>

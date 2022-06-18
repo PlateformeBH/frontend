@@ -1,0 +1,151 @@
+<div class="wrapper">
+    <div class="container" id="container">
+        
+        <form #f="ngForm" (ngSubmit)="f.form.valid && addPiece()" autocomplete="on" >
+        <div class="alert feedback-invld "*ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+            <h2>Add Manager</h2>
+            <br>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-user-circle"> </i>
+                        </span>
+                        </div>
+                        <input
+                        placeholder="Reference Piece"
+                        type="text" 
+                        id="reference" 
+                        name="reference"
+                        [(ngModel)]="piece.reference"
+                        #reference="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"   *ngIf="!reference.valid && f.submitted" >
+                    *required
+                    </div>
+                    
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-address-card"> </i>
+                        </span>
+                        </div>
+                        <input
+                            placeholder="Price"
+                            type="number" 
+                            id="price"
+                            name="price"
+                            [(ngModel)]="piece.price"
+                            #price="ngModel"
+                            class="form-control"
+                            required 
+                        /></div>
+                        <div class="feedback-invld"  *ngIf="!price.valid && f.submitted">
+                        *required
+                        </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-mobile-phone"> </i>
+                            </span>
+                        </div> 
+                        <input 
+                        placeholder="Quantity"
+                        type="number" 
+                        id="quantity"
+                        name="quantity"
+                        [(ngModel)]="piece.quantity"
+                        #quantity="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!quantity.valid && f.submitted">
+                        *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="ni ni-square-pin"> </i>
+                        </span>
+                        </div>
+                        <input
+                        placeholder="Description"
+                        type="text" 
+                        id="description"
+                        name="description"
+                        [(ngModel)]="piece.description"
+                        #description="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!description.valid && f.submitted">
+                        *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="ni ni-single-02"> </i>
+                            </span>
+                        </div>
+                        <input
+                        placeholder="Availability"
+                        type="boolean" 
+                        id="availability"
+                        name="availability"
+                        [(ngModel)]="piece.availability"
+                        #availability="ngModel"
+                        class="form-control"
+                        required 
+                    /></div>
+                    <div class="feedback-invld"  *ngIf="!availability.valid && f.submitted">
+                        *required
+                    </div>
+                    
+                </div>
+                <div class="col-md-6" >
+                <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="ni ni-lock-circle-open"> </i>
+                    </span>
+                    </div>
+                    <input
+                    placeholder="family" 
+                    type="family"  
+                    id="family"
+                    name="family"
+                    [(ngModel)]="piece.family"
+                    #family="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    
+                </div>
+                <div class="feedback-invld"   *ngIf="!family.valid && f.submitted">
+                    *required
+                </div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        
+    </div>
+</div>
