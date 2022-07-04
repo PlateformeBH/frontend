@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authentificationService.currentManagerValue?.userId) {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['manager']);
       return;
     }else if (this.authentificationService.currentMechanicValue?.userId) {
       this.router.navigate(['/profile']);
@@ -40,8 +40,7 @@ export class LoginComponent implements OnInit {
   }
   loginAsManager(){
     this.authentificationService.loginAsManager(this.manager).subscribe( data => {
-      this.router.navigate(['/profile']);
-      console.log(this.manager.token);
+      this.router.navigate(['/manager']);
     }, err => {
       this.errorMessage ='Username or Password is incorrect';
       console.log(err);
@@ -50,7 +49,6 @@ export class LoginComponent implements OnInit {
   loginAsMechanic(){
     this.authentificationService.loginAsMechanic(this.mechanic).subscribe( data => {
       this.router.navigate(['/profile']);
-      console.log(this.mechanic.token);
     }, err => {
       this.errorMessage ='Username or Password is incorrect';
       console.log(err);
@@ -58,8 +56,7 @@ export class LoginComponent implements OnInit {
   }
   loginAsSupplier(){
     this.authentificationService.loginAsSupplier(this.supplier).subscribe( data => {
-      this.router.navigate(['/profile']);
-      console.log(this.supplier.token);
+      this.router.navigate(['/supplier']);
     }, err => {
       this.errorMessage ='Username or Password is incorrect';
       console.log(err);

@@ -36,6 +36,12 @@ import { RegisterAsManagerComponent } from "./pages/register-as-manager/register
 import { RegisterAsMechanicComponent } from "./pages/register-as-mechanic/register-as-mechanic.component";
 import { RegisterAsSupplierComponent } from "./pages/register-as-supplier/register-as-supplier.component";
 import { SupplierComponent } from "./pages/supplier/supplier.component";
+import { PanierComponent } from "./pages/panier/panier.component";
+import { DamageComponent } from "./pages/damage/damage.component";
+import { AdminComponent } from "./pages/admin/admin.component";
+import { LandingComponent } from "./pages/landing/landing.component";
+import { MechanicComponent } from "./pages/mechanic/mechanic.component";
+import { FirstpageComponent } from "./pages/firstpage/firstpage.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "presentation", pathMatch: "full" },
@@ -61,7 +67,8 @@ const routes: Routes = [
   { path: "examples/product-page", component: ProductpageComponent },
   { path: "examples/reset-page", component: ResetpageComponent },
   { path: "examples/inscrire-page", component: InscrireComponent },
-  {path: "home" , component: HomeComponent},
+  {path: "home" , component: HomeComponent, canActivate: [AuthGuard],
+  data: { roles: [Role.CLIENT , Role.MANAGER, Role.MECHANIC , Role.SUPPLIER]}},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   { path: 'profile',
@@ -70,28 +77,34 @@ const routes: Routes = [
     data: { roles: [Role.CLIENT , Role.MANAGER, Role.MECHANIC , Role.SUPPLIER]}
   },
   { path: 'manager', 
-    component: ManagerComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [ Role.MANAGER]}
+    component: ManagerComponent
   },
   {path: '404', component: NotFoundComponent},
   {path: '401', component: UnauthorizedComponent},
   {
-    path: 'addManager', component: RegisterAsManagerComponent,
-    canActivate: [AuthGuard],
-    data:{ roles: [Role.MANAGER]}
+    path: 'addManager', component: RegisterAsManagerComponent  
   },
+
   {path: 'supplier', component: SupplierComponent,
-  canActivate: [AuthGuard],
-    data:{ roles: [Role.SUPPLIER]}
+     
 },
+
   {
     path: 'addMechanic', component: RegisterAsMechanicComponent
   },
   {
     path: 'addSupplier', component: RegisterAsSupplierComponent
-  }
-  
+  },
+  {
+    path: 'panier', component: PanierComponent
+  },
+  {
+    path:'damage', component: DamageComponent
+  },
+  {path: 'admin', component: AdminComponent},
+  {path: 'landing', component: LandingComponent},
+  {path : 'mechanic' , component: MechanicComponent},
+  {path : 'app', component: FirstpageComponent}
 ];
 
 @NgModule({

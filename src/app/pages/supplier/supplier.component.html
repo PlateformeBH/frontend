@@ -1,151 +1,51 @@
-<div class="wrapper">
-    <div class="container" id="container">
-        
-        <form #f="ngForm" (ngSubmit)="f.form.valid && addPiece()" autocomplete="on" >
-        <div class="alert feedback-invld "*ngIf="errorMessage">
-            {{errorMessage}}
-        </div>
-            <h2>Add Manager</h2>
-            <br>
-            <div class="form-row">
-                <div class="col-md-6">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fa fa-user-circle"> </i>
-                        </span>
-                        </div>
-                        <input
-                        placeholder="Reference Piece"
-                        type="text" 
-                        id="reference" 
-                        name="reference"
-                        [(ngModel)]="piece.reference"
-                        #reference="ngModel"
-                        class="form-control"
-                        required 
-                    /></div>
-                    <div class="feedback-invld"   *ngIf="!reference.valid && f.submitted" >
-                    *required
-                    </div>
-                    
-                </div>
-               
-                <div class="col-md-6">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fa fa-address-card"> </i>
-                        </span>
-                        </div>
-                        <input
-                            placeholder="Price"
-                            type="number" 
-                            id="price"
-                            name="price"
-                            [(ngModel)]="piece.price"
-                            #price="ngModel"
-                            class="form-control"
-                            required 
-                        /></div>
-                        <div class="feedback-invld"  *ngIf="!price.valid && f.submitted">
-                        *required
-                        </div>
-                    
-                </div>
-                <div class="col-md-6">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-mobile-phone"> </i>
-                            </span>
-                        </div> 
-                        <input 
-                        placeholder="Quantity"
-                        type="number" 
-                        id="quantity"
-                        name="quantity"
-                        [(ngModel)]="piece.quantity"
-                        #quantity="ngModel"
-                        class="form-control"
-                        required 
-                    /></div>
-                    <div class="feedback-invld"  *ngIf="!quantity.valid && f.submitted">
-                        *required
-                    </div>
-                    
-                </div>
-                <div class="col-md-6">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="ni ni-square-pin"> </i>
-                        </span>
-                        </div>
-                        <input
-                        placeholder="Description"
-                        type="text" 
-                        id="description"
-                        name="description"
-                        [(ngModel)]="piece.description"
-                        #description="ngModel"
-                        class="form-control"
-                        required 
-                    /></div>
-                    <div class="feedback-invld"  *ngIf="!description.valid && f.submitted">
-                        *required
-                    </div>
-                    
-                </div>
-                <div class="col-md-6">
-                    <div class="input-group input-group-alternative">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="ni ni-single-02"> </i>
-                            </span>
-                        </div>
-                        <input
-                        placeholder="Availability"
-                        type="boolean" 
-                        id="availability"
-                        name="availability"
-                        [(ngModel)]="piece.availability"
-                        #availability="ngModel"
-                        class="form-control"
-                        required 
-                    /></div>
-                    <div class="feedback-invld"  *ngIf="!availability.valid && f.submitted">
-                        *required
-                    </div>
-                    
-                </div>
-                <div class="col-md-6" >
-                <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="ni ni-lock-circle-open"> </i>
-                    </span>
-                    </div>
-                    <input
-                    placeholder="family" 
-                    type="family"  
-                    id="family"
-                    name="family"
-                    [(ngModel)]="piece.family"
-                    #family="ngModel"
-                    class="form-control"
-                    required 
-                    />
-                    
-                </div>
-                <div class="feedback-invld"   *ngIf="!family.valid && f.submitted">
-                    *required
-                </div>
-                </div>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Add</button>
-        </form>
-        
+<div class="wrapper skew-separator" >
+    <div class="overlay"></div>
+    
+    <div class="container p-3">
+     
+      
+     <header class="header-4" >
+     <div class="header-wrapper" >
+       <div class="head" >
+     <h3 style="color: #172b4d !important;">All Our Suppliers</h3> 
+     <div class="col-6 text-end" >
+      <button class="btn btn-primary" (click)="createSupplierRequest()" style="margin-left: 400px; background-color: #fb6340;
+      border-color: #fb6340;" *ngIf="currentManager?.userId">add Supplier</button>
     </div>
-</div>
+     </div></div>
+    </header> 
+    
+     <div class="d-flex flex-wrap"> 
+       <div
+        *ngFor="let item of supplierList; index as ind"
+        class="card  card-piece col-md-6 info orange-hover-orange " style="width: 300px; background-color: whitesmoke; ">
+        
+         <ul>
+           <li><b> First Name : </b> {{item.firstName}}</li>
+           <li><b> Last Name : </b>{{item.lastName}}</li>
+           <li><b>Cin : </b> {{item.cin}}</li>
+           <li><b> address : </b>{{item.address}}</li>
+           <li><b>Phone Number : </b>{{item.phoneNumber}}</li>
+           <li><b>Email : </b> {{item.email}}</li>
+         </ul>
+         
+   
+   
+         <div class="col-12" >
+          <button class="btn btn-outline-orange w-100  fa fa-trash" (click)="deleteSupplier(item)"
+          *ngIf="currentManager?.userId">
+            Delete
+          </button>
+        </div>
+     
+         </div></div>
+   
+   
+   
+   </div></div>
+   
+ 
+   
+   
+   
+   <app-user-save [supplier] = "selectedSupplier" (save)="saveSupplierWatcher($event)"></app-user-save>

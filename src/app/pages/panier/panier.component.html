@@ -1,0 +1,46 @@
+<div class="wrapper skew-separator" >
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="pt-5">
+            
+  <header class="header-4" >
+    <div class="header-wrapper" >
+      <div class="head">
+    <h3 *ngIf="currentManager?.userId">All Purchases</h3> 
+    <h3 *ngIf="currentClient?.userId">Your Purchases</h3> 
+    </div></div>
+   </header> 
+   
+            <div class="card">
+                
+                
+                <div class="card body">
+                    <table class = "table table-striped" >
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th *ngIf = "currentManager?.userId ">Client Id</th>
+                                <th>reference</th>
+                                <th>price</th>
+                                <th>purchase Time</th>
+                                <th *ngIf = "currentClient?.userId">action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let item of purchaseList; index as ind">
+                                <th scope="row">{{ind+1}}</th>
+                                <td *ngIf ="currentManager?.userId ">{{item.userId}}</td>
+                                <td>{{item.reference}}</td>
+                                <td>{{item.price}}</td>
+                                <td>{{item.purchaseTime}}</td>
+
+                                <td *ngIf = "currentClient?.userId"> <button class="btn btn-danger" (click)="deletePurchase(item)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

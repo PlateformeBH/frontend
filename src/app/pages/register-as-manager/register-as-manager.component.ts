@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Manager } from 'src/app/model/manager.model';
 import { AddingService } from 'src/app/services/adding.service';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 
 @Component({
   selector: 'app-register-as-manager',
@@ -17,11 +18,15 @@ export class RegisterAsManagerComponent implements OnInit {
   focus2;
   focus3;
   focus4;
-  constructor( private addingService: AddingService, 
-    private router: Router,) { }
+  constructor( private addingService: AddingService, private authentificationService : AuthentificationService
+    ,private router: Router,) { }
 
   ngOnInit(): void {
-   
+
+   if (this.authentificationService.currentManagerValue?.userId) {
+      this.router.navigate(['addManager']);
+      return;
+    }
   }
   registerAsManager(){
     this.addingService.addManager(this.manager).subscribe( data => {

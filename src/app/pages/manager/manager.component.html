@@ -1,75 +1,96 @@
-<!-- <div class="wrapper">
-    <div class="page-header page-header-small header-filter">
-        <div
-          class="page-header-image"
-          style="background-image: url('assets/img/pages/nicolas-prieto.jpg');"
-        ></div>
-        <div class="content-center">
-          <div class="row">
-            <div class="col-md-6 mx-auto text-center">
-              <h1 class="title text-white">
-                BH
-              </h1>
-              
+<div class="wrapper">
+    <header class="header-2 skew-separator">
+    
+
+<div class="section features-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+          
+          <h3 class="display-3">Manage Acounts </h3>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-piece  info purple-hover-purple" style=" background-color: whitesmoke; ">
+            <div
+              class="icon icon-lg icon-shape icon-shape-primary shadow rounded-circle center"
+            >
+              <img src="assets/img/icon/mechanic-icon.png" class="anaghim"/>
             </div>
+            <br><br>
+              <p class="text-center "> 
+                <a routerLink="/mechanic" class="font-gotham-bold text-black-color cursor-pointer">
+                  See All mechanics</a> </p>
+            
+            
+            <div class="btn-wrapper mt-5">
+              <a
+                class="btn btn-2 btn-icon mb-3 mb-sm-0"
+                
+              >
+                <span class="btn-inner--icon icon-x">
+                  <i class="fas fa-cog"> </i>
+                </span>
+                <span class="btn-inner--text" (click)="createMechanicRequest()"> Add Mechanic </span>
+              </a>
+              </div>
           </div>
         </div>
-    </div>
-    <div class="main main-raised">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-blog bg-default">
-                        <img
-                            class="img pattern rounded"
-                            src="assets/img/ill/p7.svg"
-                        />
-            
-                        <div class="card-body">
-                            <h4 class="display-4 text-center text-white">Add Mechanic</h4>
-                        
-                            <a class="btn btn-link text-white px-0" href="javascript:;">
-                                <a routerLink="addMechanic" class="font-gotham-bold text-black-color cursor-pointer">
-                            Add
-                            </a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-blog bg-default">
-                        <img
-                            class="img pattern rounded"
-                            src="assets/img/ill/p22.png"
-                        />
-            
-                        <div class="card-body">
-                            <h4 class="display-4 text-center text-white">Add Manager</h4>
-                        
-                            <a class="btn btn-link text-white px-0  " href="javascript:;">
-                            add
-                            </a>
-                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                <div class="card card-blog bg-default">
-                <img
-                    class="img pattern rounded"
-                    src="assets/img/ill/p7.svg"
-                />
-    
-                <div class="card-body">
-                    <h4 class="display-4 text-center text-white">Add Supplier</h4>
-                    <p class="lead text-white mt-0">
-                    
-                    <a class="btn btn-link text-white px-0" href="javascript:;">
-                    add
-                    </a>
-                </div>
-                </div>
-                </div>
+        <div class="col-md-4">
+          <div class="card card-piece  info green-hover-green" style=" background-color: whitesmoke; ">
+            <div
+              class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle center"
+            >
+            <img src="assets/img/icon/management.png" class="anaghim"/>
             </div>
+            
+            <br><br>
+            <p class="text-center "> 
+              <a routerLink="/manager" >
+                See All Manager</a> </p>
+            <div class="btn-wrapper mt-5">
+              <a
+                class="btn btn-3 btn-icon mb-3 mb-sm-0"
+               
+              >
+                <span class="btn-inner--icon icon-x">
+                  <i class="fa fa-user-plus"> </i>
+                </span>
+                <span class="btn-inner--text" (click)="createManagerRequest()"> Add Manager </span>
+              </a>
+              </div>
+          </div>
         </div>
+        <div class="col-md-4">
+          <div class="card card-piece  info orange-hover-orange" style=" background-color: whitesmoke; ">
+            <div
+              class="icon icon-lg icon-shape icon-shape-warning shadow rounded-circle center"
+            >
+            <img src="assets/img/icon/supplier.png" class="anaghim"/>
+            </div>
+            <br><br>
+              <p class="text-center "> 
+                <a routerLink="/supplier" >
+                  <u> See All suppliers </u></a> </p>
+            <div class="btn-wrapper mt-5">
+              <a
+                class="btn btn-1 btn-icon mb-3 mb-sm-0"
+                
+              >
+                <span class="btn-inner--icon icon-x">
+                  <i class="fas fa-shopping-cart"> </i>
+                </span>
+                <span class="btn-inner--text" (click)="createSupplierRequest()"> Add Supplier </span>
+              </a>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div> -->
+  </div>
+</header>
+</div>
+
+<app-user-save></app-user-save>

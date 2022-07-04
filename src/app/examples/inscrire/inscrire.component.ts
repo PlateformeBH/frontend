@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Client} from '../../model/user';
 
 @Component({
   selector: 'app-inscrire',
@@ -12,7 +11,7 @@ export class InscrireComponent implements OnInit {
 
   public inscriptionForm: any;
   public submitted = false;
-  pa!:Client;
+ // pa!:Client;
   msg : any;
   pinCode: any;
 
@@ -40,7 +39,7 @@ export class InscrireComponent implements OnInit {
   }
 
   get f() { return this.inscriptionForm.controls; }
-  public signup(): void {
+  /* public signup(): void {
     this.submitted = true;
     if (this.inscriptionForm.invalid) {
       return;
@@ -55,10 +54,10 @@ export class InscrireComponent implements OnInit {
       this.router.navigate(['examples/account-settings']);
     }, err => {
       console.log("une erreur est survenue lors de la création de votre compte");
-    });*/
+    });
 
 
 
-  }
+  }*/
 
 }

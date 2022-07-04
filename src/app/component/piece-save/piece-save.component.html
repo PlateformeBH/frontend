@@ -1,0 +1,179 @@
+<div class="modal fade"  id="pieceModal" role="dialog" tabeIndex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="alert alert-danger" *ngIf="errorMessage">
+                {{errorMessage}}
+              </div>
+            
+              <div class="alert alert-success" *ngIf="infoMessage">
+                {{infoMessage}}
+              </div>
+            <form  #f="ngForm" (ngSubmit)="f.form.valid && addPiece()" autocomplete="on" >
+                <div class="alert feedback-invld "*ngIf="errorMessage">
+                  {{errorMessage}}
+                 </div>
+                 <div class="modal-header">
+                    <h5 class="modal-title">Spare Part Details</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-info"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="Reference Piece"
+                    type="text" 
+                    id="reference" 
+                    name="reference"
+                    [(ngModel)]="piece.reference"
+                    #reference="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    <div class="feedback-invld"   *ngIf="!reference.valid && f.submitted" >
+                        *required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-commenting"> </i>
+                        </span>
+                      </div>
+                      <input
+                      placeholder="Description Piece"
+                      type="text" 
+                      id="description" 
+                      name="description"
+                      [(ngModel)]="piece.description"
+                      #description="ngModel"
+                      class="form-control"
+                      required 
+                      />
+                      <div class="feedback-invld"   *ngIf="!description.valid && f.submitted" >
+                          *required
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-money-coins"> </i>
+                            </span>
+                        </div>
+                        <input
+                        placeholder="Price"
+                        type="number" 
+                        id="price"
+                        name="price"
+                        [(ngModel)]="piece.price"
+                        #price="ngModel"
+                        class="form-control"
+                        required 
+                        />
+                        <div class="feedback-invld"  *ngIf="!price.valid && f.submitted">
+                            *required
+                        </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-cubes"> </i>
+                        </span>
+                    </div> 
+                    <input 
+                    placeholder="Quantity"
+                    type="number" 
+                    id="quantity"
+                    name="quantity"
+                    [(ngModel)]="piece.quantity"
+                    #quantity="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    <div class="feedback-invld"  *ngIf="!quantity.valid && f.submitted">
+                        *required
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-collection"> </i>
+                            </span>
+                        </div>
+                        <select type="family" id="family" name="family" [(ngModel)]="piece.family"
+                            class="form-control"  
+                            #family="ngModel" required  >
+                            <option value="undefined" disabled selected >select piece family</option>
+                            <option
+                                *ngFor="let opt of familyP"
+                                [value]="opt">{{ opt }}
+                            </option>
+                        </select> 
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-car"></i>
+                            </span>
+                        </div>
+                        
+                        <select type="text" id="carBrand" name="carBrand" [(ngModel)]="piece.carBrand" 
+                            class="form-control"  
+                            #carBrand="ngModel" required  >
+                            <option value="undefined" disabled selected >select your car brand</option>
+                            <option
+                                *ngFor="let opt of carBrands"
+                                [value]="opt">{{ opt }}
+                            </option>
+                        </select> 
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-car"> </i>
+                    </span>
+                </div>
+                <input
+                    placeholder="Car Model"
+                    type="text" 
+                    id="carModel" 
+                    name="carModel"
+                    [(ngModel)]="piece.carModel"
+                    #carModel="ngModel"
+                    class="form-control"
+                    required />
+                <div class="feedback-invld"   *ngIf="!carModel.valid && f.submitted" >
+                *required
+                </div>
+                  </div>
+                </div>
+               
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                    </button>
+                <button class="btn btn-primary" type="submit">Add Piece</button>
+            </div>          
+              </form>
+        </div>
+    </div>
+</div>
+
+

@@ -19,11 +19,25 @@ export class PieceService extends RequestBaseService {
    }
 
    addPiece(piece: Piece): Observable<any>{
-    return this.http.post(API_URL +'add' , piece, {headers: this.getSupplierHeaders}) ;
+    return this.http.post(API_URL +'add' , piece , {headers: this.getUserHeaders}) ;
    }
 
    deletePiece(piece: Piece): Observable<any>{
-    return this.http.delete(API_URL + piece.idPiece, {headers: this.getSupplierHeaders});
+    return this.http.delete(API_URL +'delete/' + piece.idPiece, {headers: this.getSupplierHeaders });
    }
 
+  getAllPieces(): Observable<any>{
+     return this.http.get(API_URL + 'all' ,  {headers: this.getUserHeaders});
+    }
+  getPieceByRef(piece : Piece): Observable<any> {
+    return this.http.get(API_URL + 'ref/' + piece.reference );
+  }
+
+ 
+  getPieceBySupplierId(piece : Piece): Observable<any>{
+    return this.http.get(API_URL + 'supp/' + piece.supplierId);
+  }
+  getPieceByFamily(piece : Piece) :Observable<any> {
+    return this.http.get(API_URL + 'family/'+ piece.family);
+  }
 }

@@ -63,4 +63,19 @@ export abstract class RequestBaseService {
     );
   }
 
+  get getUserHeaders(){
+    
+    if(this.currentClient){
+      return this.getClientHeaders;
+
+    }else if (this.currentManager){
+      return this.getManagerHeaders;
+    }else if (this.currentMechanic){
+      return this.getMechanicHeaders;
+    }else if (this.currentSupplier){
+      return this.getSupplierHeaders;
+    }
+    
+  }
+
 }

@@ -1,0 +1,189 @@
+<div class="modal fade"  id="damageModal" role="dialog" tabeIndex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="alert alert-danger" *ngIf="errorMessage">
+                {{errorMessage}}
+              </div>
+            
+              <div class="alert alert-success" *ngIf="infoMessage">
+                {{infoMessage}}
+              </div>
+                       <form  #f="ngForm" (ngSubmit)="f.form.valid && saveDamage()" autocomplete="on" >
+                <div class="alert feedback-invld "*ngIf="errorMessage">
+                  {{errorMessage}}
+                 </div>
+                 <div class="modal-header">
+                    <h5 class="modal-title">Claim Details</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-email-83"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="serial number"
+                    type="number" 
+                    id="serial_number"
+                    name="serial_number"
+                    [(ngModel)]="damage.serial_number"
+                    #serial_number="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    <div class="feedback-invld"  *ngIf="!serial_number.valid && f.submitted">
+                      *required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-lock-circle-open"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="contract number"
+                    type="number" 
+                    id="contract_number"
+                    name="contract_number"
+                    [(ngModel)]="damage.contract_number"
+                    #contract_number="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    <div class="feedback-invld"  *ngIf="!contract_number.valid && f.submitted">
+                      *required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-car"></i>
+                            </span>
+                        </div>
+                        
+                        <select type="text" id="carBrand" name="carBrand" [(ngModel)]="damage.carBrand" 
+                            class="form-control"  
+                            #carBrand="ngModel" required  >
+                            <option value="undefined" disabled selected >select your car brand</option>
+                            <option
+                                *ngFor="let opt of carBrands"
+                                [value]="opt">{{ opt }}
+                            </option>
+                        </select> 
+                  </div>
+                </div>
+
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-single-02"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="carModel"
+                    type="text" 
+                    id="carModel"
+                    name="carModel"
+                    [(ngModel)]="damage.carModel"
+                    #carModel="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    <div class="feedback-invld"  *ngIf="!carModel.valid && f.submitted">
+                      *required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-single-02"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="accidentDate"
+                    type="date" 
+                    id="accidentDate"
+                    name="accidentDate"
+                    [(ngModel)]="damage.accidentDate"
+                    #accidentDate="ngModel"
+                    class="form-control"
+                    required 
+                    />
+                    <div class="feedback-invld"  *ngIf="!accidentDate.valid && f.submitted">
+                      *required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-single-02"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="accidentPhoto"
+                    type="file" 
+                    id="accidentPhoto"
+                    name="accidentPhoto"
+                    (change)="onFileChanged($event)"
+                    [(ngModel)]="damage.accidentPhoto"
+                    #accidentPhoto="ngModel"
+                    accept="image/png, image/jpeg"
+                    class="form-control"
+                    required 
+                    />
+                    <img [src]="imgURL"   height="200" *ngIf="imgURL"  />
+                    <div class="feedback-invld"  *ngIf="!accidentPhoto.valid && f.submitted">
+                      *required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-3" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="ni ni-single-02"> </i>
+                      </span>
+                    </div>
+                    <input
+                    placeholder="reportPhoto"
+                    type="file" 
+                    id="reportPhoto"
+                    name="reportPhoto"
+                    (change)="onFileChanged($event)"
+                    [(ngModel)]="damage.reportPhoto"
+                    #reportPhoto="ngModel"
+                    accept="image/png, image/jpeg"
+                    class="form-control"
+                    required 
+                    />
+                    <img [src]="imgURL1"   height="200" *ngIf="imgURL1"  />
+                    <div class="feedback-invld"  *ngIf="!reportPhoto.valid && f.submitted">
+                      *required
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                    </button>
+                <button class="btn btn-primary" type="submit">save Changes</button>
+            </div>          
+              </form>
+        </div>
+    </div>
+</div>
+
+

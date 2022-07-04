@@ -30,6 +30,18 @@ export class AddingService extends RequestBaseService {
     return this.http.post(API_URL1+ 'add/supplier', supplier, {headers: this.getManagerHeaders});
    }
 
+   getAllMechanic() : Observable<any> {
+    return this.http.get(API_URL1 + 'allMechanics' );
+   }
 
+   getAllSuppliers() :Observable<any> {
+    return this.http.get(API_URL1 + 'allSuppliers' , {headers : this.getManagerHeaders});
+   }
+   deleteSupplier(supplier: Supplier) : Observable<any> {
+    return this.http.delete(API_URL1 + 'delete/supplier/' + supplier.userId , {headers: this.getManagerHeaders} )
+   }
+   deleteMechanic(mechanic: Mechanic) : Observable<any> {
+    return this.http.delete(API_URL1 + 'delete/mechanic/' + mechanic.userId , {headers: this.getManagerHeaders} )
+   }
 
 }

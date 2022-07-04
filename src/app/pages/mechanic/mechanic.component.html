@@ -1,0 +1,48 @@
+<div class="wrapper skew-separator" >
+    <div class="overlay"></div>
+    
+    <div class="container p-3">
+     
+     <header class="header-4" >
+     <div class="header-wrapper" >
+       <div class="head">
+     <h3>All Our Mechanics</h3> 
+     <div class="col-md-auto text-end">
+      <button class="btn btn-primary btn-create " *ngIf="currentManager?.userId" (click)="createMechanicRequest()"  style="
+      margin-left: 250px;">Add new mechanic</button> 
+      </div>
+     </div></div>
+    </header> 
+    
+     <div class="d-flex flex-wrap"> 
+       <div
+        *ngFor="let item of mechanicList; index as ind"
+        class="card  card-piece col-md-6 info purple-hover-purple" style="width: 300px; background-color: #f8f7f7; ">
+         <div class="card-body">
+             <h5 class="card-title text-uppercase " >{{item.speciality}}</h5>
+         </div>
+         <ul>
+           <li><b> First Name : </b> {{item.firstName}}</li>
+           <li><b> Last Name : </b>{{item.lastName}}</li>
+           <li><b> address : </b>{{item.address}}</li>
+           <li><b>Phone Number : </b>{{item.phoneNumber}}</li>
+           <li><b>Email : </b> {{item.email}}</li>
+         </ul>
+         <td>
+          <button class="btn btn-danger" (click)="deleteMechanic(item)"  *ngIf="currentManager?.userId" >Delete</button>
+      </td>
+   
+   
+         
+     
+         </div></div>
+   
+   
+   
+   </div></div>
+   
+   <hr><hr><hr>
+   
+   
+   
+   <app-user-save [mechanic] = "selectedMechanic" (save)="saveMechanicWatcher($event)"></app-user-save>

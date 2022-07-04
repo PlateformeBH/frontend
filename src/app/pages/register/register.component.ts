@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authentificationService.currentClientValue?.userId) {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/landing']);
       return;
     }
  
@@ -65,7 +65,7 @@ export class RegisterComponent implements OnInit {
     loginAsClient(){
       
       this.authentificationService.loginAsClient(this.client).subscribe( data => {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/landing']);
          }, err => {
         this.errorMessage ='Username or Password is incorrect';
         console.log(err);

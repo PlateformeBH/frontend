@@ -1,0 +1,55 @@
+.flex-wrap{
+    margin-top: 50px;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 88%;
+    width: 100%;
+    background-color: #fb6340 ;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.card-body{
+    flex: 1 1 auto;
+    padding: 1rem ;
+}
+ ul li {
+  
+    border-color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+}
+b, h5{
+   color: #fb6340 ;
+}
+li::marker{
+    content: none;
+  
+}
+header {
+    text-align: center;
+    margin-left: 90px;
+
+}
+.head{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.p-3 {
+    margin-top: 150px;
+}
+
+.btn-outline-orange {
+    color: #fb6340;
+    border-color: #fb6340;
+}
+.btn-outline-orange:hover {
+    color: #fff;
+    background-color: #fb6340;
+    border-color: #fb6340;
+}

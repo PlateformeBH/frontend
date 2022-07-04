@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="pt-12">
+        <div class="alert alert-danger" *ngIf = "errorMessage">
+            {{errorMessage}}
+        </div>
+
+        <div class="card">
+            <div class="card header">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>All Damages</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th >#</th>                            
+                            <th >firstName</th>
+                            <th >lastName</th>
+                            <th >cin</th>
+                            <th >email</th>
+                            <th >phoneNumber</th>
+                            <th >address</th>
+                            <th >serial number</th>
+                            <th >contract number</th>
+                            <th >carModel</th>
+                            <th >accidentDate</th>
+                            <th >accidentPhoto</th>
+                            <th >reportPhoto</th>
+                            <th >createTime</th>
+                            <th >action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of damageList; index as ind">
+                            <th scope="row">{{ind+1}}</th>
+                            <td>{{item.firstName}}</td>
+                            <td>{{item.lastName}}</td>
+                            <td>{{item.cin}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phoneNumber}}</td>
+                            <td>{{item.address}}</td>
+                            <td>{{item.serial_number}}</td>
+                            <td>{{item.contract_number}}</td>
+                            <td>{{item.carModel}}</td>
+                            <td>{{item.accidentDate}}</td>
+                            <td>{{item.accidentPhoto}}</td>
+                            <td>{{item.reportPhoto}}</td>
+                            <td>{{item.createTime | date : 'medium'}}</td>
+                            <td>
+                                <button class="btn btn-primary me-1">Edit</button>
+                                <button class="btn btn-danger" (click)="deleteDamage(item)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

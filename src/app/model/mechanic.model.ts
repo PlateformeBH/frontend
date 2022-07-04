@@ -1,4 +1,5 @@
 import { Role } from "./role.enum";
+import { Speciality } from "./speciality.enum";
 
 export class Mechanic {
     userId: number|undefined;
@@ -11,5 +12,6 @@ export class Mechanic {
     username: string = "";
     password: string = "";
     token: string ="";
+    speciality : Speciality | undefined;
     role: Role = Role.MECHANIC;
 }

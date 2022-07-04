@@ -1,0 +1,54 @@
+<div class="wrapper skew-separator">
+  <div class="overlay"></div>
+<div class="container">
+  <div class="pt-5">
+      <div class="alert alert-danger" *ngIf = "errorMessage">
+          {{errorMessage}}
+      </div>
+
+      <div class="card card-plain">
+              <div class="row">
+                  <div class="col-6">
+                      <h3>All Claims</h3>
+                  </div>
+                <div class="col-md-auto text-end">
+                  <button class="btn btn-primary btn-create " (click)="createDamageRequest()" >create</button> 
+                  </div> 
+            </div>
+
+          <div class="card body">
+            <div class="table-responsive">
+              <table class="table tablesorter table-damage">
+                  <thead>
+                      <tr>
+                          <th >#</th>                            
+                          <th >serial number</th>
+                          <th >contract number</th>
+                          <th>car Brand</th>
+                          <th>status</th>
+                          
+                          <th >action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of damageList; index as ind">
+                          <th scope="row">{{ind+1}}</th>
+                          <td class="text-center">{{item.serial_number}}</td>
+                          <td class="text-center">{{item.contract_number}}</td>
+                          <td class="text-center">{{item.carBrand}}</td>
+                          <td>{{item.status}}</td>
+                          
+                          <td>
+                              <button class="btn btn-danger" (click)="deleteDamage(item)" >Delete</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+
+
+  </div>
+</div></div>
+<app-damage-save [damage]="selectedDamage" (save)="saveDamageWatcher($event)"></app-damage-save>

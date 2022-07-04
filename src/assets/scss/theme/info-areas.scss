@@ -33,6 +33,32 @@
       box-shadow: $info-shadow $info;
     }
   }
+
+  &.purple-hover-purple {
+    &:hover {
+      background-color: $pp;
+      -webkit-box-shadow: $pp-shadow $pp;
+      -moz-box-shadow: $pp-shadow $pp;
+      box-shadow: $pp-shadow $pp;
+    }
+  }
+
+  &.orange-hover-orange {
+    &:hover {
+      background-color: $orange;
+      -webkit-box-shadow: $orange-shadow $orange;
+      -moz-box-shadow: $orange-shadow $orange;
+      box-shadow: $orange-shadow $orange;
+    }
+  }
+  &.green-hover-green {
+    &:hover {
+      background-color: $green;
+      -webkit-box-shadow: $green-shadow $green;
+      -moz-box-shadow: $green-shadow $green;
+      box-shadow: $green-shadow $green;
+    }
+  }
   &.info-hover-warning {
     &:hover {
       background-color: $warning;

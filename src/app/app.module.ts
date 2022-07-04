@@ -57,6 +57,15 @@ import { RegisterAsMechanicComponent } from './pages/register-as-mechanic/regist
 import { RegisterAsManagerComponent } from './pages/register-as-manager/register-as-manager.component';
 import { RegisterAsSupplierComponent } from './pages/register-as-supplier/register-as-supplier.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
+import { PanierComponent } from './pages/panier/panier.component';
+import { DamageComponent } from './pages/damage/damage.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { DamageSaveComponent } from './component/damage-save/damage-save.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { PieceSaveComponent } from './component/piece-save/piece-save.component';
+import { MechanicComponent } from './pages/mechanic/mechanic.component';
+import { UserSaveComponent } from './component/user-save/user-save.component';
+import { FirstpageComponent } from './pages/firstpage/firstpage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +103,16 @@ import { SupplierComponent } from './pages/supplier/supplier.component';
     RegisterAsMechanicComponent,
     RegisterAsManagerComponent,
     RegisterAsSupplierComponent,
-    SupplierComponent
+    SupplierComponent,
+    PanierComponent,
+    DamageComponent,
+    AdminComponent,
+    DamageSaveComponent,
+    LandingComponent,
+    PieceSaveComponent,
+    MechanicComponent,
+    UserSaveComponent,
+    FirstpageComponent
   ],
   imports: [
     HttpClientModule,

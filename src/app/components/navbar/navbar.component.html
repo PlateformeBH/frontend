@@ -3,8 +3,11 @@
   id="navbar-main"
 >
   <div class="container">
-    <a class="navbar-brand mr-lg-5" [routerLink]="['/index']">
-      <img src="assets/img/brand/argon-white.png" id="brand-logo"/>
+    <a class="navbar-brand mr-lg-5" >
+      <div class="navbar-collapse"
+      [collapse]="isCollapsed"
+      id="navbar_global">
+      <img src="assets/img/BhLogo.png" id="brand-logo"/></div>
     </a>
     <button
       aria-controls="navbar_global"
@@ -27,7 +30,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a [routerLink]="['/index']">
-              <img src="assets/img/brand/blue.png" />
+              <img src="assets/img/BhLogo.png" />
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -46,73 +49,7 @@
         </div>
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto" *ngIf="mobileView()">
-        <!-- <li class="nav-item dropdown" dropdown>
-          <a
-            class="nav-link"
-            data-toggle="dropdown"
-            dropdownToggle
-            href="javascript:;"
-            role="button"
-          >
-            <i class="ni ni-ui-04 d-lg-none"> </i>
-            <span class="nav-link-inner--text"> Elements </span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-xl" *dropdownMenu >
-            <div class="dropdown-menu-inner">
-              <a class="media d-flex align-items-center" [routerLink]="['/index']">
-                <div
-                  class="icon icon-shape bg-gradient-primary rounded-circle text-white"
-                >
-                  <i class="ni ni-spaceship"> </i>
-                </div>
-                <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Elements</h6>
-                  <p class="description d-none d-md-inline-block mb-0">
-                    Learn how to use compiling Scss, change brand colors and
-                    more.
-                  </p>
-                </div>
-              </a>
-              <a
-                class="media d-flex align-items-center"
-                [routerLink]="['/presentation']"
-              >
-                <div
-                  class="icon icon-shape bg-gradient-warning rounded-circle text-white"
-                >
-                  <i class="ni ni-palette"> </i>
-                </div>
-                <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Presentation</h6>
-                  <p class="description d-none d-md-inline-block mb-0">
-                    Learn more about colors, typography, icons and the grid
-                    system we used for .
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div class="dropdown-menu-footer">
-              <a
-                class="dropdown-item"
-                href="https://demos.creative-tim.com/argon-design-system-pro-angular/documentation/overview"
-              >
-                <i class="ni ni-atom"> </i> Getting Started
-              </a>
-              <a
-                class="dropdown-item"
-                href="https://demos.creative-tim.com/argon-design-system-pro-angular/documentation/colors"
-              >
-                <i class="ni ni-ui-04"> </i> Foundation
-              </a>
-              <a
-                class="dropdown-item"
-                href="https://demos.creative-tim.com/argon-design-system-pro-angular/documentation/alerts"
-              >
-                <i class="ni ni-archive-2"> </i> Components
-              </a>
-            </div>
-          </div>
-        </li> -->
+      
         <li class="nav-item dropdown" dropdown>
           <a
             class="nav-link"
@@ -122,7 +59,7 @@
             role="button"
           >
             <i class="ni ni-app d-lg-none"> </i>
-            <span class="nav-link-inner--text"> Design Blocks </span>
+            <span class="nav-link-inner--text"> Design  </span>
           </a>
           <div
             aria-labelledby="navbarDropdownMenuLink"
@@ -311,7 +248,7 @@
         </li> 
       </ul>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto" *ngIf="!mobileView()">
-        <li class="nav-item dropdown">
+         <!-- <li class="nav-item dropdown">
           <a
             class="nav-link"
             data-toggle="dropdown"
@@ -385,7 +322,7 @@
             role="button"
           >
             <i class="ni ni-app d-lg-none"> </i>
-            <span class="nav-link-inner--text"> Design Blocks </span>
+            <span class="nav-link-inner--text"> Design  </span>
           </a>
           <div
             aria-labelledby="navbarDropdownMenuLink"
@@ -481,7 +418,7 @@
               <i class="ni ni-ungroup text-yellow"> </i> 500 Error Page
             </a>
           </div>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
           <a
             class="nav-link"
@@ -490,36 +427,35 @@
             role="button"
           >
             <i class="ni ni-tablet-button d-lg-none"> </i>
-            <span class="nav-link-inner--text"> App Pages </span>
+            <span class="nav-link-inner--text"> <i class="fa fa-home" aria-hidden="true"></i> </span>
           </a>
           <div
             aria-labelledby="navbarDropdownMenuLink"
             class="dropdown-menu"
           >
-            <a class="dropdown-item"  [routerLink]="['/examples/account-settings']">
-              <i class="ni ni-lock-circle-open text-muted"> </i> Account
-              Settings
+           <a class="dropdown-item" [routerLink]="['landing']" *ngIf="currentClient?.userId">
+              <i class="ni ni-bullet-list-67 text-success"> </i> Home
             </a>
-            <a class="dropdown-item" [routerLink]="['/examples/login-page']">
-              <i class="ni ni-tv-2 text-danger"> </i> Login Page
+            <a class="dropdown-item" [routerLink]="['manager']" *ngIf="currentManager?.userId">
+              <i class="ni ni-bullet-list-67 text-success"> </i> Home
             </a>
-            <a class="dropdown-item" [routerLink]="['/examples/register-page']">
-              <i class="ni ni-air-baloon text-pink"> </i> Register Page
+            <a class="dropdown-item"  [routerLink]="['damage']"  *ngIf="currentClient?.userId || currentManager?.userId">
+              <i class="fas fa-file-text text-muted"> </i> Claim
             </a>
-            <a class="dropdown-item" [routerLink]="['/examples/reset-page']">
-              <i class="ni ni-atom text-info"> </i> Reset Page
+            
+            
+            <a class="dropdown-item" [routerLink]="['mechanic']">
+              <i class="ni ni-settings text-danger"> </i> Mechanic
             </a>
-            <a class="dropdown-item" [routerLink]="['/examples/invoice-page']">
-              <i class="ni ni-bullet-list-67 text-success"> </i> Invoice Page
+            <a class="dropdown-item" [routerLink]="['home']">
+              <i class="ni ni-basket text-orange"> </i> Spare parts Marketplace
             </a>
-            <a class="dropdown-item" [routerLink]="['/examples/checkout-page']">
-              <i class="ni ni-basket text-orange"> </i> Checkout Page
-            </a>
-            <a class="dropdown-item" [routerLink]="['/examples/chat-page']">
-              <i class="ni ni-chat-round text-primary"> </i> Chat Page
+            <a class="dropdown-item"  [routerLink]="['panier']"  *ngIf="currentClient?.userId || currentManager?.userId || currentSupplier?.userId ">
+              <i class="fa fa-cart-arrow-down text-muted"> </i> panier
             </a>
           </div>
-        </li>
+        </li> 
+       
         <li class="nav-item dropdown">
           <a
             class="nav-link"
@@ -528,7 +464,7 @@
             role="button"
           >
             <i class="ni ni-tablet-button d-lg-none"> </i>
-            <span class="nav-link-inner--text"> New Pages </span>
+            <span class="nav-link-inner--text" style="color:red ;"><i class="fa fa-bars" aria-hidden="true"></i> </span>
           </a>
           <div
             aria-labelledby="navbarDropdownMenuLink"
